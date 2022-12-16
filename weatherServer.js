@@ -143,22 +143,3 @@ async function clear() {
 app.listen(port);
 
 
-
-// Command Line Interpreter
-console.log("Web server started and running at http://localhost:" + port);
-process.stdout.write("Type stop to shutdown the server: ");
-process.stdin.setEncoding("utf8");
-process.stdin.on("readable", () => {
-  let command = process.stdin.read();
-  if (command !== null) {
-    command = command.trim();
-    if (command === "stop") {
-      console.log("Shutting down the server");
-      process.exit(0);
-    } else {
-      console.log("Invalid command: \"" + command + "\"");
-    }
-  }
-  process.stdout.write("Type stop to shutdown the server: ");
-  process.stdin.resume();
-});
